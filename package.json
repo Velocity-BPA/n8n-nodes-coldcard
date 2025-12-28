@@ -1,0 +1,102 @@
+{
+  "name": "n8n-nodes-coldcard",
+  "version": "1.0.0",
+  "description": "A comprehensive n8n community node for Coldcard hardware wallet providing 22 resources and 200+ operations for air-gapped Bitcoin signing, multisig management, HSM mode, and secure key operations. Includes support for Coldcard Mk4 and Q models.",
+  "license": "BUSL-1.1",
+  "author": {
+    "name": "Velocity BPA",
+    "email": "licensing@velobpa.com",
+    "url": "https://velobpa.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Velocity-BPA/n8n-nodes-coldcard.git"
+  },
+  "homepage": "https://github.com/Velocity-BPA/n8n-nodes-coldcard#readme",
+  "bugs": {
+    "url": "https://github.com/Velocity-BPA/n8n-nodes-coldcard/issues"
+  },
+  "keywords": [
+    "n8n",
+    "n8n-community-node-package",
+    "coldcard",
+    "bitcoin",
+    "hardware-wallet",
+    "psbt",
+    "multisig",
+    "hsm",
+    "air-gapped",
+    "cryptocurrency",
+    "signing",
+    "security",
+    "bip174",
+    "bip84",
+    "nfc"
+  ],
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "credentials": [
+      "dist/credentials/ColdcardDevice.credentials.js",
+      "dist/credentials/ColdcardFile.credentials.js",
+      "dist/credentials/ColdcardNetwork.credentials.js"
+    ],
+    "nodes": [
+      "dist/nodes/Coldcard/Coldcard.node.js",
+      "dist/nodes/Coldcard/ColdcardTrigger.node.js"
+    ]
+  },
+  "scripts": {
+    "build": "tsc && gulp build:icons",
+    "dev": "tsc --watch",
+    "lint": "eslint . --ext .ts",
+    "lint:fix": "eslint . --ext .ts --fix",
+    "format": "prettier --write \"**/*.ts\"",
+    "test": "jest",
+    "test:unit": "jest test/unit",
+    "test:integration": "jest test/integration",
+    "test:coverage": "jest --coverage",
+    "test:watch": "jest --watch",
+    "prepublishOnly": "npm run build",
+    "clean": "rm -rf dist",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "bitcoinjs-lib": "^6.1.5",
+    "bip32": "^4.0.0",
+    "bip39": "^3.1.0",
+    "bs58check": "^3.0.1",
+    "tiny-secp256k1": "^2.2.3",
+    "usb": "^2.11.0",
+    "node-hid": "^3.0.0",
+    "chokidar": "^3.5.3",
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.11",
+    "@types/lodash": "^4.14.202",
+    "@types/node": "^20.10.6",
+    "@types/node-hid": "^1.3.4",
+    "@typescript-eslint/eslint-plugin": "^6.16.0",
+    "@typescript-eslint/parser": "^6.16.0",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-n8n-nodes-base": "^1.16.1",
+    "gulp": "^4.0.2",
+    "jest": "^29.7.0",
+    "n8n-workflow": "^1.22.0",
+    "prettier": "^3.1.1",
+    "ts-jest": "^29.1.1",
+    "typescript": "^5.3.3"
+  },
+  "peerDependencies": {
+    "n8n-workflow": "^1.22.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
