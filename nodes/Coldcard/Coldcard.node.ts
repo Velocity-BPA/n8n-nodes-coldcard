@@ -1128,7 +1128,7 @@ export class Coldcard implements INodeType {
 				}
 
 				returnData.push({ json: result });
-			} catch (error) {
+			} catch (error: any) {
 				if (this.continueOnFail()) {
 					returnData.push({
 						json: {
